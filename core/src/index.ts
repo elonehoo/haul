@@ -1,3 +1,4 @@
-import {convertName} from '@titem/convert/src/index'
+import {ResponseAsTypes,Options,OptionsRaw,HaulError,HaulInstance} from './type'
 
-export default convertName
+
+
