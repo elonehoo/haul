@@ -1,0 +1,47 @@
+{
+  "name": "@elonehoo/haul",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "convenient and modern wrapper around fetch with smart extensible defaults",
+  "author": "Elone Hoo <huchengyea@163.com>",
+  "license": "MIT",
+  "keywords": [
+    "fetch"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/elonehoo/haul#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elonehoo/haul"
+  },
+  "bugs": "https://github.com/elonehoo/haul/issues",
+  "scripts": {
+    "build": "rimraf dist && tsup",
+    "prepublishOnly": "pnpm run build"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.4",
+    "tsup": "^6.1.2"
+  }
+}
