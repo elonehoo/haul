@@ -1,7 +1,5 @@
-import { describe, expect, it } from 'vitest'
+import {expect, it } from 'vitest'
 
-describe('should', () => {
-  it('exported', () => {
-    expect(1).toEqual(1)
-  })
+it('exported', () => {
+  expect(1).toEqual(1)
 })
