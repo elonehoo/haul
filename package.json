@@ -7,10 +7,12 @@
   "license": "MIT",
   "version": "0.0.0",
   "scripts": {
+    "build-dev":"pnpm -C core run build",
     "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish --access public",
     "typeCheck": "tsc --noEmit",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "test":"pnpm -C test run test"
   },
   "devDependencies": {
     "@elonehoo/eslint-config": "^2.0.0",

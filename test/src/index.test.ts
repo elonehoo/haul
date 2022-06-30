@@ -1,5 +1,10 @@
-import {expect, it } from 'vitest'
+import {expect, test } from 'vitest'
 
-it('exported', () => {
-  expect(1).toEqual(1)
+import {haul} from '@elonehoo/haul'
+
+test('test in mock',()=>{
+  const base = haul('http://example.com/api/')
+  base.get('').then((res)=>{
+    console.log(res)
+  })
 })

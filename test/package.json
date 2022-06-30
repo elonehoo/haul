@@ -13,9 +13,14 @@
   },
   "devDependencies": {
     "@elonehoo/haul": "workspace:*",
+    "@types/mockjs": "^1.0.6",
     "c8": "^7.11.3",
     "mockjs": "^1.1.0",
     "vite-plugin-mock": "^2.9.6",
     "vitest": "^0.15.2"
+  },
+  "dependencies": {
+    "node-fetch": "^3.2.6",
+    "whatwg-fetch": "^3.6.2"
   }
 }
