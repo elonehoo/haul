@@ -1,4 +1,6 @@
 export type ResponseAsTypes = 'json' | 'text' | 'response'
+
+export type InferArgs<F> = F extends (api: HaulInstance, ...args: infer A) => any ? A : never
 /**
  * Allowed options for a request. Extends native `RequestInit`.
  */
