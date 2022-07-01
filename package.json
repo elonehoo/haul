@@ -8,7 +8,7 @@
   "version": "0.0.1",
   "scripts": {
     "build-dev": "pnpm -C core run build",
-    "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish --access public",
+    "release": "bumpp package.json core/package.json --commit --push --tag && pnpm -r publish --access public",
     "typeCheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
