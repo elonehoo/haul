@@ -1,6 +1,6 @@
 {
   "name": "@elonehoo/haul",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "description": "convenient and modern wrapper around fetch with smart extensible defaults",
   "author": "Elone Hoo <huchengyea@163.com>",
