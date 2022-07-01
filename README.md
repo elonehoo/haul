@@ -45,7 +45,7 @@ fetch('/api/users', {
 but now it can be written as
 
 ```typescript
-const users = mande('/api/users')
+const users = haul('/api/users')
 
 users.post({
   name: 'Elone Hoo',
