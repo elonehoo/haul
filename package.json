@@ -5,7 +5,7 @@
   "author": "Elone Hoo <huchengyea@163.com>",
   "type": "module",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "build": "pnpm -C core run build",
     "release": "bumpp package.json core/package.json --commit --push --tag && pnpm -r publish --access public",
