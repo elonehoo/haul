@@ -13,17 +13,17 @@
   },
   "devDependencies": {
     "@elonehoo/haul": "workspace:*",
-    "@types/mockjs": "^1.0.6",
-    "c8": "^7.11.3",
+    "@types/mockjs": "^1.0.7",
+    "c8": "^7.12.0",
     "mockjs": "^1.1.0",
     "vite-plugin-mock": "^2.9.6",
-    "vitest": "^0.15.2"
+    "vitest": "^0.28.3"
   },
   "dependencies": {
-    "@types/node": "^18.0.0",
+    "@types/node": "^18.11.18",
     "@types/node-fetch": "^2.6.2",
-    "amazon-cognito-identity-js": "^5.2.9",
-    "node-fetch": "^3.2.6",
+    "amazon-cognito-identity-js": "^6.1.2",
+    "node-fetch": "^3.3.0",
     "whatwg-fetch": "^3.6.2"
   }
 }
