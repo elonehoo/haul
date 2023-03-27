@@ -14,16 +14,16 @@
   "devDependencies": {
     "@elonehoo/haul": "workspace:*",
     "@types/mockjs": "^1.0.7",
-    "c8": "^7.12.0",
+    "c8": "^7.13.0",
     "mockjs": "^1.1.0",
     "vite-plugin-mock": "^2.9.6",
-    "vitest": "^0.28.3"
+    "vitest": "^0.29.7"
   },
   "dependencies": {
-    "@types/node": "^18.11.18",
+    "@types/node": "^18.15.10",
     "@types/node-fetch": "^2.6.2",
-    "amazon-cognito-identity-js": "^6.1.2",
-    "node-fetch": "^3.3.0",
+    "amazon-cognito-identity-js": "^6.2.0",
+    "node-fetch": "^3.3.1",
     "whatwg-fetch": "^3.6.2"
   }
 }
