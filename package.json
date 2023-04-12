@@ -1,27 +1,60 @@
 {
-  "name": "@elonehoo/monorepo",
-  "private": "true",
+  "name": "@elonehoo/haul",
   "description": "convenient and modern wrapper around fetch with smart extensible defaults",
   "author": "Elone Hoo <huchengyea@163.com>",
   "type": "module",
   "license": "MIT",
   "version": "0.0.3",
+  "keywords": [
+    "fetch"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/elonehoo/haul#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elonehoo/haul"
+  },
+  "bugs": "https://github.com/elonehoo/haul/issues",
   "scripts": {
-    "build": "pnpm -C core run build",
+    "build": "rimraf dist && tsup",
+    "prepublishOnly": "pnpm run build",
     "release": "bumpp package.json core/package.json --commit --push --tag && pnpm -r publish --access public",
     "typeCheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "pnpm -C test run test"
+    "test": "vitest"
   },
   "devDependencies": {
     "@elonehoo/eslint-config": "2.0.0",
     "@types/node": "18.15.11",
     "bumpp": "9.1.0",
     "eslint": "8.38.0",
-    "pnpm": "7.32.0",
+    "pnpm": "8.2.0",
+    "rimraf": "5.0.0",
+    "tsup": "6.7.0",
     "typescript": "5.0.4",
     "vite": "4.2.1",
-    "vitest": "0.30.1"
+    "vitest": "0.30.1",
+    "vitest-fetch-mock": "^0.2.2"
   }
 }
