@@ -83,7 +83,7 @@ extends Omit<Options<R>, 'headers' | 'signal'>
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | headers | `Record<string, string \| null>` | (Optional) Headers sent alongside the request. Set any header to null to remove it. |
-| signal | `never` | (Optional) AbortSignal can only be passed to requests, not to a mande instance because it can only be used once. |
+| signal | `never` | (Optional) AbortSignal can only be passed to requests, not to a haul instance because it can only be used once. |
 
 ## HaulResponse
 

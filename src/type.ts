@@ -30,7 +30,7 @@ export interface OptionsRaw<R extends ResponseAsTypes = ResponseAsTypes>
   headers?: Record<string, string | null>
 
   /**
-   * AbortSignal can only be passed to requests, not to a mande instance
+   * AbortSignal can only be passed to requests, not to a haul instance
    * because it can only be used once.
    */
   signal?: never
