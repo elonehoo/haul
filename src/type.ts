@@ -44,24 +44,39 @@ export interface HaulError<T = any> extends Error {
   response: Response
 }
 
+export type HaulResponse<
+  T = unknown,
+  ResponseType extends ResponseAsTypes = 'json',
+> = Promise<
+  ResponseType extends 'response'
+    ? Response
+    : ResponseType extends 'text'
+      ? string
+      : T
+>
+
 /**
  * Object returned by {@link haul}
  */
- export interface HaulInstance {
+export interface HaulInstance {
   /**
    * Writable options.
    */
   options: Required<Pick<OptionsRaw, 'headers'>> &
-    Pick<OptionsRaw, 'responseAs' | 'query'>
+  Pick<OptionsRaw, 'responseAs' | 'query'>
 
   /**
    * Sends a GET request to the given url.
    * @param url - relative url to send the request to
    * @param options - optional {@link Options}
    */
-  get(url: string | number, options: Options<'response'>): Promise<Response>
-  get(url: string | number, options: Options<'text'>): Promise<string>
-  get<T = unknown>(url: string | number, options?: Options): Promise<T>
+  get<T = unknown, R extends ResponseAsTypes = 'json'>(
+    options?: Options<R>
+  ): HaulResponse<T, R>
+  get<T = unknown, R extends ResponseAsTypes = 'json'>(
+    url: string | number,
+    options?: Options<R>
+  ): HaulResponse<T, R>
 
   /**
    * Sends a POST request to the given url.
@@ -69,24 +84,15 @@ export interface HaulError<T = any> extends Error {
    * @param data - optional body of the request
    * @param options - optional {@link Options}
    */
-  post(
-    url: string | number,
-    data: any,
-    options: Options<'text'>
-  ): Promise<string>
-  post(data: any, options: Options<'text'>): Promise<string>
-  post(
-    url: string | number,
-    data: any,
-    options: Options<'response'>
-  ): Promise<Response>
-  post(data: any, options: Options<'response'>): Promise<Response>
-  post<T = unknown>(data?: any, options?: Options): Promise<T>
-  post<T = unknown>(
+  post<T = unknown, R extends ResponseAsTypes = 'json'>(
+    data?: any,
+    options?: Options<R>
+  ): HaulResponse<T, R>
+  post<T = unknown, R extends ResponseAsTypes = 'json'>(
     url: string | number,
     data?: any,
-    options?: Options
-  ): Promise<T>
+    options?: Options<R>
+  ): HaulResponse<T, R>
 
   /**
    * Sends a PUT request to the given url.
@@ -94,24 +100,15 @@ export interface HaulError<T = any> extends Error {
    * @param data - optional body of the request
    * @param options - optional {@link Options}
    */
-  put(
-    url: string | number,
-    data: any,
-    options: Options<'text'>
-  ): Promise<string>
-  put(data: any, options: Options<'text'>): Promise<string>
-  put(
-    url: string | number,
-    data: any,
-    options: Options<'response'>
-  ): Promise<Response>
-  put(data: any, options: Options<'response'>): Promise<Response>
-  put<T = unknown>(
+  put<T = unknown, R extends ResponseAsTypes = 'json'>(
+    data?: any,
+    options?: Options<R>
+  ): HaulResponse<T, R>
+  put<T = unknown, R extends ResponseAsTypes = 'json'>(
     url: string | number,
     data?: any,
-    options?: Options
-  ): Promise<T>
-  put<T = unknown>(data?: any, options?: Options): Promise<T>
+    options?: Options<R>
+  ): HaulResponse<T, R>
 
   /**
    * Sends a PATCH request to the given url.
@@ -119,31 +116,26 @@ export interface HaulError<T = any> extends Error {
    * @param data - optional body of the request
    * @param options - optional {@link Options}
    */
-  patch(
-    url: string | number,
-    data: any,
-    options: Options<'response'>
-  ): Promise<Response>
-  patch(data: any, options: Options<'response'>): Promise<Response>
-  patch(
-    url: string | number,
-    data: any,
-    options: Options<'text'>
-  ): Promise<string>
-  patch(data: any, options: Options<'text'>): Promise<string>
-  patch<T = unknown>(
+  patch<T = unknown, R extends ResponseAsTypes = 'json'>(
+    data?: any,
+    options?: Options<R>
+  ): HaulResponse<T, R>
+  patch<T = unknown, R extends ResponseAsTypes = 'json'>(
     url: string | number,
     data?: any,
-    options?: Options
-  ): Promise<T>
-  patch<T = unknown>(data?: any, options?: Options): Promise<T>
+    options?: Options<R>
+  ): HaulResponse<T, R>
 
   /**
    * Sends a DELETE request to the given url.
    * @param url - relative url to send the request to
    * @param options - optional {@link Options}
    */
-  delete(url: string | number, options: Options<'response'>): Promise<Response>
-  delete(url: string | number, options: Options<'text'>): Promise<string>
-  delete<T = unknown>(url: string | number, options?: Options): Promise<T>
+  delete<T = unknown, R extends ResponseAsTypes = 'json'>(
+    options?: Options<R>
+  ): HaulResponse<T, R>
+  delete<T = unknown, R extends ResponseAsTypes = 'json'>(
+    url: string | number,
+    options?: Options<R>
+  ): HaulResponse<T, R>
 }
