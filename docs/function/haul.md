@@ -29,7 +29,7 @@ HaulInstance
 ```ts
 const users = haul('/api/users')
 
-users.get('2').then(user => {
+users.get('2').then((user) => {
   // do something
 })
 ```

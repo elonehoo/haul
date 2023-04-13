@@ -1,11 +1,11 @@
 {
   "name": "@haul/docs",
   "private": "true",
+  "license": "MIT",
+  "author": "Elone Hoo <hi@elonehoo.me>",
   "scripts": {
     "dev":"vitepress dev"
   },
-  "author": "Elone Hoo <hi@elonehoo.me>",
-  "license": "MIT",
   "devDependencies": {
     "vitepress": "1.0.0-alpha.65"
   },

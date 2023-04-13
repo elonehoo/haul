@@ -1,10 +1,10 @@
 import { defineConfig } from 'vitepress'
-import { description, discord, font, github, name, releases, twitter,} from './meta'
+import { description, discord, font, github, name, twitter } from './meta'
 
 export default defineConfig({
   lang: 'en-US',
-  title:name,
-  description: description,
+  title: name,
+  description,
   head: [
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
@@ -19,62 +19,62 @@ export default defineConfig({
   lastUpdated: true,
   markdown: {
     theme: {
-        light: 'vitesse-light',
-        dark: 'vitesse-dark',
+      light: 'vitesse-light',
+      dark: 'vitesse-dark',
     },
   },
-  themeConfig:{
-    logo:'/logo.svg',
+  themeConfig: {
+    logo: '/logo.svg',
     editLink: {
       pattern: 'https://github.com/elonehoo/haul/tree/main/docs/:path',
       text: 'Suggest changes to this page',
     },
     socialLinks: [
-        { icon: 'twitter', link: twitter },
-        { icon: 'discord', link: discord },
-        { icon: 'github', link: github },
+      { icon: 'twitter', link: twitter },
+      { icon: 'discord', link: discord },
+      { icon: 'github', link: github },
     ],
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2023-PRESENT Elone Hoo',
     },
-    sidebar:[
+    sidebar: [
       {
-        text:'Guide',
-        items:[
+        text: 'Guide',
+        items: [
           {
-            text:'Getting Started',
-            link:'/'
-          }
-        ]
+            text: 'Getting Started',
+            link: '/',
+          },
+        ],
       },
       {
-        text:'Function',
-        items:[
+        text: 'Function',
+        items: [
           {
-            text:'haul()',
-            link:'/function/haul'
-          }
-        ]
+            text: 'haul()',
+            link: '/function/haul',
+          },
+        ],
       },
       {
-        text:'Types',
-        items:[
+        text: 'Types',
+        items: [
           {
-            text:'HaulType',
-            link:'/type/'
-          }
-        ]
+            text: 'HaulType',
+            link: '/type/',
+          },
+        ],
       },
       {
-        text:'Variables',
-        items:[
+        text: 'Variables',
+        items: [
           {
-            text:'variables',
-            link:'/variables/'
-          }
-        ]
-      }
-    ]
-  }
+            text: 'variables',
+            link: '/variables/',
+          },
+        ],
+      },
+    ],
+  },
 })

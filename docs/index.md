@@ -36,7 +36,7 @@ usually we will write:
 fetch('/api/users', {
   method: 'POST',
   headers: {
-    Accept: 'application/json',
+    'Accept': 'application/json',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -44,9 +44,9 @@ fetch('/api/users', {
     password: 'elonehoooohenole',
   }),
 }).then((response) => {
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 200 && response.status < 300)
     return response.json()
-  }
+
   // reject if the response is not 2xx
   throw new Error(response.statusText)
 }).then((user) => {
@@ -94,7 +94,7 @@ const todos = haul('/api/todos', globalOptions)
 
 export function setToken(token) {
   // todos.options will be used for all requests
-  todos.options.headers.Authorization = 'token ' + token
+  todos.options.headers.Authorization = `token ${token}`
 }
 
 export function clearToken() {
@@ -121,7 +121,7 @@ all methods defined on a haul instance accept a type generic to type their retur
 ```ts
 const todos = haul('/api/todos', globalOptions)
 
-todos.get<{ text: string, id: number, isFinished: boolean }[]>().then(todos => {
+todos.get<{ text: string; id: number; isFinished: boolean }[]>().then((todos) => {
   // todos is correctly typed
 })
 ```
