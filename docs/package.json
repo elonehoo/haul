@@ -4,7 +4,8 @@
   "license": "MIT",
   "author": "Elone Hoo <hi@elonehoo.me>",
   "scripts": {
-    "dev":"vitepress dev"
+    "dev":"vitepress dev",
+    "build":"vitepress build"
   },
   "devDependencies": {
     "vitepress": "1.0.0-alpha.65"
