@@ -1,7 +1,6 @@
 {
   "name": "@elonehoo/haul",
-  "type": "module",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "convenient and modern wrapper around fetch with smart extensible defaults",
   "keywords": [
     "fetch"
@@ -12,31 +11,25 @@
     "type": "git",
     "url": "git+https://github.com/elonehoo/haul"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
+      "import": "./dist/index.mjs"
+    },
+    "./*": "./*"
   },
   "files": [
-    "dist"
+    "dist",
+    "*.d.ts"
   ],
   "homepage": "https://github.com/elonehoo/haul#readme",
   "bugs": "https://github.com/elonehoo/haul/issues",
   "scripts": {
-    "build": "rimraf dist && tsup",
+    "build": "rimraf dist && unbuild",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp package.json core/package.json --commit --push --tag && pnpm -r publish --access public",
     "typeCheck": "tsc --noEmit",
@@ -55,8 +48,8 @@
     "eslint": "8.38.0",
     "pnpm": "8.2.0",
     "rimraf": "5.0.0",
-    "tsup": "6.7.0",
     "typescript": "5.0.4",
+    "unbuild": "^1.2.0",
     "vite": "4.2.1",
     "vitest": "0.30.1",
     "vitest-fetch-mock": "^0.2.2"
