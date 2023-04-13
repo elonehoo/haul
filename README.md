@@ -114,6 +114,14 @@ todos.get<{ text: string, id: number, isFinished: boolean }[]>().then(todos => {
 })
 ```
 
+## Credits
+
+Thanks to:
+
+- [@posva/mande](https://github.com/posva/mande)
+- [axios](https://github.com/axios/axios)
+- [fetch](https://github.com/github/fetch)
+
 ## license
 
-[MIT](./LICENSE) © [Elone Hoo](https://github.com/elonehoo)
+[MIT](./LICENSE) License © 2022 [Elone Hoo](https://github.com/elonehoo)
