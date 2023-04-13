@@ -60,12 +60,17 @@ export default defineConfig({
         text:'Types',
         items:[
           {
-            text:'HaulError',
-            link:'/type/error'
-          },
+            text:'HaulType',
+            link:'/type/'
+          }
+        ]
+      },
+      {
+        text:'Variables',
+        items:[
           {
-            text:'HaulInstance',
-            link:'/type/instance'
+            text:'variables',
+            link:'/variables/'
           }
         ]
       }
