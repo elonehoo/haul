@@ -55,6 +55,19 @@ export default defineConfig({
             link:'/function/haul'
           }
         ]
+      },
+      {
+        text:'Types',
+        items:[
+          {
+            text:'HaulError',
+            link:'/type/error'
+          },
+          {
+            text:'HaulInstance',
+            link:'/type/instance'
+          }
+        ]
       }
     ]
   }
