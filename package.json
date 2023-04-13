@@ -29,6 +29,7 @@
   "homepage": "https://github.com/elonehoo/haul#readme",
   "bugs": "https://github.com/elonehoo/haul/issues",
   "scripts": {
+    "docs:dev":"pnpm -C docs run dev",
     "build": "rimraf dist && unbuild",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp package.json core/package.json --commit --push --tag && pnpm -r publish --access public",
