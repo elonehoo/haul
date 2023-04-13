@@ -27,7 +27,7 @@ interface HaulError<T = any> extends Error {
 ### Signature
 
 ```ts
-interface HaulInstance
+interface HaulInstance{}
 ```
 
 ### Parmeters
@@ -58,7 +58,7 @@ interface HaulInstance
 ### Signature
 
 ```ts
-interface Options<ResponseAs extends ResponseAsTypes = ResponseAsTypes> extends RequestInit
+interface Options<ResponseAs extends ResponseAsTypes = ResponseAsTypes> extends RequestInit {}
 ```
 
 ### Parmeters
@@ -75,7 +75,7 @@ interface Options<ResponseAs extends ResponseAsTypes = ResponseAsTypes> extends 
 
 ```ts
 interface OptionsRaw<R extends ResponseAsTypes = ResponseAsTypes>
-extends Omit<Options<R>, 'headers' | 'signal'>
+  extends Omit<Options<R>, 'headers' | 'signal'>{}
 ```
 
 ### Parmeters
