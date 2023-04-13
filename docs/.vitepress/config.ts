@@ -24,6 +24,7 @@ export default defineConfig({
     },
   },
   themeConfig:{
+    logo:'/logo.svg',
     editLink: {
       pattern: 'https://github.com/elonehoo/haul/tree/main/docs/:path',
       text: 'Suggest changes to this page',
