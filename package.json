@@ -1,6 +1,6 @@
 {
   "name": "@elonehoo/haul",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "convenient and modern wrapper around fetch with smart extensible defaults",
   "keywords": [
     "fetch"
