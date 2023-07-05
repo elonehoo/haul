@@ -4,11 +4,11 @@
   "license": "MIT",
   "author": "Elone Hoo <hi@elonehoo.me>",
   "scripts": {
-    "dev":"vitepress dev",
-    "build":"vitepress build"
+    "dev": "vitepress dev",
+    "build": "vitepress build"
   },
   "devDependencies": {
-    "vitepress": "1.0.0-beta.1"
+    "vitepress": "1.0.0-beta.5"
   },
   "pnpm": {
     "peerDependencyRules": {
