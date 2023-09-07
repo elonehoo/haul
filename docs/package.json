@@ -1,5 +1,6 @@
 {
   "name": "@haul/docs",
+  "type": "module",
   "private": "true",
   "license": "MIT",
   "author": "Elone Hoo <hi@elonehoo.me>",
