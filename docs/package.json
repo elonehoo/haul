@@ -9,7 +9,7 @@
     "build": "vitepress build"
   },
   "devDependencies": {
-    "vitepress": "1.0.0-rc.41"
+    "vitepress": "1.0.0-rc.42"
   },
   "pnpm": {
     "peerDependencyRules": {
