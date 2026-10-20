@@ -13,28 +13,28 @@ describe('haul', () => {
     fetchMock.mockResponseOnce(JSON.stringify({}))
 
     await expect(api.get('')).resolves.toEqual({})
-    expect(fetchMock.requests()[0].url).toEqual('/api/')
+    expect(fetchMock.requests()[0].url).toEqual('http://localhost/api/')
   })
 
   it('can use a number', async () => {
     const api = haul('/api/')
     fetchMock.mockResponseOnce(JSON.stringify({}))
     await expect(api.get(0)).resolves.toEqual({})
-    expect(fetchMock.requests()[0].url).toEqual('/api/0')
+    expect(fetchMock.requests()[0].url).toEqual('http://localhost/api/0')
   })
 
   it('works with non trailing slashes', async () => {
     const api = haul('/api/')
     fetchMock.mockResponseOnce(JSON.stringify({}))
     await expect(api.get('/2')).resolves.toEqual({})
-    expect(fetchMock.requests()[0].url).toEqual('/api/2')
+    expect(fetchMock.requests()[0].url).toEqual('http://localhost/api/2')
   })
 
   it('can use get without parameters', async () => {
     const api = haul('/api/')
     fetchMock.mockResponseOnce(JSON.stringify({}))
     await expect(api.get()).resolves.toEqual({})
-    expect(fetchMock.requests()[0].url).toEqual('/api/')
+    expect(fetchMock.requests()[0].url).toEqual('http://localhost/api/')
   })
 
   it('allows an absolute base', async () => {
@@ -46,23 +46,23 @@ describe('haul', () => {
 
   it('returns null on 204', async () => {
     const api = haul('/api/')
-    fetchMock.mockResponseOnce('', { status: 204 })
+    fetchMock.mockResponseOnce(null, { status: 204 })
     await expect(api.get('')).resolves.toEqual(null)
-    expect(fetchMock.requests()[0].url).toEqual('/api/')
+    expect(fetchMock.requests()[0].url).toEqual('http://localhost/api/')
   })
 
   it('calls delete', async () => {
     const api = haul('/api/')
-    fetchMock.mockResponseOnce('', { status: 204 })
+    fetchMock.mockResponseOnce(null, { status: 204 })
     await expect(api.delete('')).resolves.toEqual(null)
-    expect(fetchMock.requests()[0].url).toEqual('/api/')
+    expect(fetchMock.requests()[0].url).toEqual('http://localhost/api/')
   })
 
   it('calls delete without parameters', async () => {
     const api = haul('/api/')
-    fetchMock.mockResponseOnce('', { status: 204 })
+    fetchMock.mockResponseOnce(null, { status: 204 })
     await expect(api.delete()).resolves.toEqual(null)
-    expect(fetchMock.requests()[0].url).toEqual('/api/')
+    expect(fetchMock.requests()[0].url).toEqual('http://localhost/api/')
   })
 
   it('rejects if not ok', async () => {
@@ -117,14 +117,14 @@ describe('haul', () => {
     const api = haul('/api/')
     fetchMock.mockResponseOnce(JSON.stringify({ }))
     await expect(api.put('', { foo: 'a', bar: 'b' })).resolves.toEqual({})
-    expect(fetchMock.requests()[0].body?.toString()).toEqual(JSON.stringify({ foo: 'a', bar: 'b' }))
+    expect(await fetchMock.requests()[0].text()).toEqual(JSON.stringify({ foo: 'a', bar: 'b' }))
   })
 
   it('can omit the url', async () => {
     const api = haul('/api/users')
     fetchMock.mockResponseOnce(JSON.stringify({ }))
     await expect(api.put({ foo: 'a', bar: 'b' })).resolves.toEqual({})
-    expect(fetchMock.requests()[0].body?.toString()).toEqual(JSON.stringify({ foo: 'a', bar: 'b' }))
+    expect(await fetchMock.requests()[0].text()).toEqual(JSON.stringify({ foo: 'a', bar: 'b' }))
   })
 
   it('can add custom headers', async () => {
@@ -169,7 +169,7 @@ describe('haul', () => {
 
   it('can return a raw response with status code 204', async () => {
     const api = haul('/api/')
-    fetchMock.mockResponseOnce('', { status: 204 })
+    fetchMock.mockResponseOnce(null, { status: 204 })
     await api.get('', { responseAs: 'response' }).then((res) => {
       expect(res).not.toBeNull()
       expectType<Response>(res)
@@ -187,7 +187,7 @@ describe('haul', () => {
 
   it('can return a raw response when delete called without url parameter', async () => {
     const api = haul('/api/')
-    fetchMock.mockResponseOnce('', { status: 204 })
+    fetchMock.mockResponseOnce(null, { status: 204 })
     await api.delete({ responseAs: 'response' }).then((res) => {
       expect(res).not.toBeNull()
       expectType<Response>(res)
@@ -208,7 +208,7 @@ describe('haul', () => {
     defaults.query = { foo: 'bar' }
     fetchMock.mockResponseOnce(JSON.stringify({}), { status: 200 })
     await expect(api.get('2')).resolves.toEqual({})
-    expect(fetchMock.requests()[0].url).toEqual('/api/2?foo=bar')
+    expect(fetchMock.requests()[0].url).toEqual('http://localhost/api/2?foo=bar')
     delete defaults.query
   })
 
@@ -216,27 +216,27 @@ describe('haul', () => {
     const api = haul('/api')
     fetchMock.mockResponseOnce(JSON.stringify({}), { status: 200 })
     await expect(api.get('')).resolves.toEqual({})
-    expect(fetchMock.requests()[0].url).toEqual('/api')
+    expect(fetchMock.requests()[0].url).toEqual('http://localhost/api')
   })
 
   it('ensure in between slashes', async () => {
     const api = haul('/api')
     fetchMock.mockResponseOnce(JSON.stringify({}), { status: 200 })
     await expect(api.get('2')).resolves.toEqual({})
-    expect(fetchMock.requests()[0].url).toEqual('/api/2')
+    expect(fetchMock.requests()[0].url).toEqual('http://localhost/api/2')
   })
 
   it('adds explicit trailing slash', async () => {
     const api = haul('/api')
     fetchMock.mockResponseOnce(JSON.stringify({}), { status: 200 })
     await expect(api.get('/')).resolves.toEqual({})
-    expect(fetchMock.requests()[0].url).toEqual('/api/')
+    expect(fetchMock.requests()[0].url).toEqual('http://localhost/api/')
   })
 
   it('avoids duplicated slashes', async () => {
     const api = haul('/api/')
     fetchMock.mockResponseOnce(JSON.stringify({}), { status: 200 })
     await expect(api.get('/2')).resolves.toEqual({})
-    expect(fetchMock.requests()[0].url).toEqual('/api/2')
+    expect(fetchMock.requests()[0].url).toEqual('http://localhost/api/2')
   })
 })

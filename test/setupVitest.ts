@@ -1,11 +1,10 @@
-// setupVitest.js or similar file
 import createFetchMock from 'vitest-fetch-mock'
 import { vi } from 'vitest'
 
+// Node's Request rejects relative URLs. vitest-fetch-mock resolves them
+// against `location`, matching a browser document.
+globalThis.location = { origin: 'http://localhost' } as unknown as Location
+
 const fetchMocker = createFetchMock(vi)
 
-// sets globalThis.fetch and globalThis.fetchMock to our mocked version
 fetchMocker.enableMocks()
-
-// changes default behavior of fetchMock to use the real 'fetch' implementation and not mock responses
-fetchMocker.dontMock()

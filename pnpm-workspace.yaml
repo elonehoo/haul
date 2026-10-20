@@ -1,2 +1,13 @@
 packages:
   - docs
+
+# pnpm 12 no longer reads the package.json "pnpm" field.
+peerDependencyRules:
+  ignoreMissing:
+    - '@algolia/client-search'
+
+# pnpm 12 fails the install unless dependency build scripts are explicitly
+# approved or denied. esbuild's postinstall fetches its native binary.
+allowBuilds:
+  esbuild: true
+  pnpm: true
